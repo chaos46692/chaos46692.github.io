@@ -1,0 +1,42 @@
+<html>
+<head>
+<style>
+  .error{
+    display: none;
+    margin-left: 10px;
+  }		
+
+  .error_show{
+    color: red;
+    margin-left: 10px;
+  }
+</style>
+<title>Test</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  function validateForm() {
+    return false;
+  }
+  
+  $('#firstname').focusout(function() {
+    var input=$(this);
+    var is_name=input.val();
+    if(is_name){input.removeClass("invalid").addClass("valid");}
+    else{input.removeClass("valid").addClass("invalid");}
+  });  
+</script>
+
+<form id="myForm" action="link_to_google_script"  onsubmit="return validateForm()">
+    First Name:<br>
+    <input type="text" name="firstname" style="width:200px"><br>
+    Last Name:<br>
+    <input type="text" name="lastname" style="width:200px"><br>
+    <br>
+    <input type="submit" id="mySubmit" value="Submit">
+</form>
+
+<p><span id="myConf">This is where the confirmation message will appear after submission.</span></p>
+
+</body>
